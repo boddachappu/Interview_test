@@ -1,0 +1,93 @@
+# Round 1:
+
+from abc import ABC
+
+class Singleton:
+
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+ob = Singleton()
+print(ob)
+ob2 = Singleton()
+print(ob2)
+
+
+
+class Animal:
+    def walk_check(self):
+        print("Animal can Walk")
+
+class Walk(Animal):
+    def walk_check(self):
+        print("I can walk")
+
+class Dog(Animal, Walk):
+    def shout1(self):
+        print("Dog barks")
+
+class Example(Dog):
+    pass
+
+dog_obj = Example()
+dog_obj.walk_check()
+
+
+class Animal:
+    def shout(self):
+        pass
+
+class Cat(Animal):
+    def shout(self):
+        print("cat shouts meow")
+
+class Dog(Animal):
+    def shout(self):
+        print("Dog will bark")
+
+class FactoryClass:
+
+    def get_object(self, name):
+        if name == "Cat":
+            ob = Cat()
+            return ob
+        elif name == "Dog":
+            ob = Dog()
+            return ob
+
+cat = FactoryClass()
+cat_obj = cat.get_object("Cat")
+cat_obj.shout()
+dog_obj = cat.get_object("Dog")
+dog_obj.shout()
+
+
+
+#  Round 2
+"""
+1. Django lazy loading
+2. Django signals
+3. Django db connection will be created only while using during db or the connection will be always is open
+4. Django flow from client to server and server to client
+5. Django jwt flow
+
+Python
+1. Handling team related to leading team
+2. Difficulties in leading team
+3. How will you do PR reviews
+4. Testing concepts
+5. Can we have teardown and setup in python development
+6. Destructor in python
+7. Oops concepts and classmethod, instance method (can i access classmethod from instance method, can I access instance method from class method without creating instance)
+8. Context manager how they are working internally
+9. Decorators and context manager are doing same thing why do we need context managers, what is the difference between them why do we need both.
+10. Deep copy and shallow copy.
+11. The copy and deep copy in nested list tuple elements we can't edit
+12. Tuple and list can we edit or delete the elembt from tuple
+13. Pandas how to replace elements in rows and columns if it is divisible by 2 replace it with zero. How to do it in python
+14. Day to day activities how does ur day looks like
+"""
